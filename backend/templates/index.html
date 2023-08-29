@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FlaskApp</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <h2>Welcome to FlaskApp!</h2>
+    <h3>{{ utc_dt }}</h3>
+    {% for d in demo %}
+    <div class='demo'>
+        <p>{{ d['created'] }}</p>
+        <h2>{{ d['title'] }}</h2>
+        <p>{{ d['content'] }}</p>
+    </div>
+    {% endfor %}
+</body>
+</html>
