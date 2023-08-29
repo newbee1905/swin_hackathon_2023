@@ -25,4 +25,4 @@ backend/.coverage
 backend/.coverage.*
 backend/*,cover
 
-backend/db.sqlite
+backend/database.db
