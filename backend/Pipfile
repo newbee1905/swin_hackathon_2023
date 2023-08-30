@@ -8,11 +8,12 @@ flask = "*"
 gunicorn = "*"
 flask-login = "*"
 flask-sqlalchemy = "*"
-jwt = "*"
 python-dotenv = "*"
-pyjwt = "*"
 requests = "*"
 firebase-admin = "*"
+pyjwt = "*"
+numpy = "*"
+pillow = "*"
 
 [dev-packages]
 
