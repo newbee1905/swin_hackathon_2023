@@ -8,44 +8,17 @@ function Uploader() {
   const url = "";
   const [image, setImage] = useState(null);
   const [fileName, setFileName] = useState("No selected file");
-  const [data, setData] = useState({
-    image: "",
-    image_mode: "",
-    neg_prompt: "",
-    pos_prompt: "",
-    images_number: "",
-    alignment_strength: "",
-    tile_refinement: "",
-  });
 
-  function submitHandler(e) {
-    e.preventDefault();
-    Axios.post(url, {
-      image: data.image,
-      image_mode: data.image_mode,
-      neg_prompt: data.neg_prompt,
-      pos_prompt: data.pos_prompt,
-      images_number: data.images_number,
-      alignment_strength: data.alignment_strength,
-      tile_refinement: data.tile_refinement,
-    });
-  }
-
-  function handle(e) {
-    const newData = { ...data };
-    newData[e.target.id] = e.target.value;
-    setData(newData);
-  }
   return (
     <div>
-      <form action="" onSubmit={(e) => submitHandler(e)}>
+      <form action="/api/run" method="post" enctype="multipart/form-data">
         <fieldset>
           <input
             type="file"
-            onChange={(e) => handle(e)}
             accept="image/*"
             className="input-field"
             id="image"
+            name="image"
             onChange={({ target: { files } }) => {
               files[0] && setFileName(files[0].name);
               if (files) {
@@ -57,7 +30,7 @@ function Uploader() {
         </fieldset>
 
         {image ? (
-          <img src={image} width={250} height={250} alt={fileName} />
+          <img src={image} height={250} alt={fileName} />
         ) : (
           <div
             className="uf"
@@ -80,29 +53,14 @@ function Uploader() {
           </div>
         </section>
         <fieldset className="input-field">
-          <label for="mask-align-str" className="form-label">
-            Mask Align Strength
-          </label>
-          <br></br>
-          <input type="number" id="mask-align-str" className="form-input" />
           <label for="pos_prompt" className="form-label">
-            Positive Prompt
+            Prompt
           </label>
           <br></br>
           <input
             type="text"
-            id="pos_prompt"
-            onChange={(e) => handle(e)}
-            className="form-input"
-          />
-          <label for="neg_prompt" className="form-label">
-            Negative Prompt
-          </label>
-          <br></br>
-          <input
-            type="text"
-            id="neg_prompt"
-            onChange={(e) => handle(e)}
+            id="prompt"
+            name="prompt"
             className="form-input"
           />
           <label for="images_number" className="form-label">
@@ -112,7 +70,7 @@ function Uploader() {
           <input
             type="number"
             id="images_number"
-            onChange={(e) => handle(e)}
+            name="images_number"
             className="form-input"
           />
           <label for="alignment_strength" className="form-label">
@@ -122,7 +80,7 @@ function Uploader() {
           <input
             type="number"
             id="alignment_strength"
-            onChange={(e) => handle(e)}
+            name="alignment_strength"
             className="form-input"
           />
           {/* <label for="alignment_strength" className='form-label'>Alignment Strength</label><br></br>        
@@ -132,8 +90,7 @@ function Uploader() {
           </label>
           <select
             id="image_mode"
-            onChange={(e) => handle(e)}
-            name="cars"
+            name="image_mode"
             className="form-input"
           >
             <option value="foreground">Foreground Point</option>
@@ -145,7 +102,6 @@ function Uploader() {
             <input
               type="checkbox"
               id="tile_refinement"
-              onChange={(e) => handle(e)}
               name="tile_refinement"
               value="tile_refinement"
             />
