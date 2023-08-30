@@ -66,15 +66,20 @@ def authentication_required():
 
 
 @app.route("/")
-@login_required
+# @login_required
 def index():
-    return render_template('index.html', name=current_user.name, photo_url=current_user.photo_url)
+    # return render_template('index.html', name=current_user.name, photo_url=current_user.photo_url)
+    return render_template('index.html')
 
 
-@app.route("/run", methods=['POST'])
+@app.route("/api/run", methods=['POST'])
 @login_required
 def run() -> str:
     data = request.form
+
+    print("Form", request.form)
+    print("Files", request.files)
+    print("Args", request.args)
 
     err = ""
 
