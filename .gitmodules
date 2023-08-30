@@ -1,3 +1,0 @@
-[submodule "backend/flask-firebase"]
-	path = backend/flask-firebase
-	url = git@github.com:klokantech/flask-firebase.git
