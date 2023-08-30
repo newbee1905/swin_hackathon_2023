@@ -42,83 +42,54 @@ function RegularTables() {
           <Col xs={12}>
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Simple Table</CardTitle>
+                <CardTitle tag="h4">Team Introduction</CardTitle>
               </CardHeader>
               <CardBody>
-                <Table responsive>
-                  <thead className="text-primary">
-                    <tr>
-                      {thead.map((prop, key) => {
-                        if (key === thead.length - 1)
-                          return (
-                            <th key={key} className="text-right">
-                              {prop}
-                            </th>
-                          );
-                        return <th key={key}>{prop}</th>;
-                      })}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tbody.map((prop, key) => {
-                      return (
-                        <tr key={key}>
-                          {prop.data.map((prop, key) => {
-                            if (key === thead.length - 1)
-                              return (
-                                <td key={key} className="text-right">
-                                  {prop}
-                                </td>
-                              );
-                            return <td key={key}>{prop}</td>;
-                          })}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </Table>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xs={12}>
-            <Card className="card-plain">
-              <CardHeader>
-                <CardTitle tag="h4">Table on Plain Background</CardTitle>
-                <p className="category"> Here is a subtitle for this table</p>
-              </CardHeader>
-              <CardBody>
-                <Table responsive>
-                  <thead className="text-primary">
-                    <tr>
-                      {thead.map((prop, key) => {
-                        if (key === thead.length - 1)
-                          return (
-                            <th key={key} className="text-right">
-                              {prop}
-                            </th>
-                          );
-                        return <th key={key}>{prop}</th>;
-                      })}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tbody.map((prop, key) => {
-                      return (
-                        <tr key={key}>
-                          {prop.data.map((prop, key) => {
-                            if (key === thead.length - 1)
-                              return (
-                                <td key={key} className="text-right">
-                                  {prop}
-                                </td>
-                              );
-                            return <td key={key}>{prop}</td>;
-                          })}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </Table>
+                <div>
+                <h6>Nguyen Tuan Dat (team learder)</h6>
+                <img src="" alt="Girl in a jacket" width="500" height="600"/>
+                <p>Vivamus auctor elementum ante commodo mattis. Morbi dictum, turpis ac pellentesque viverra, quam neque euismod eros, quis bibendum purus sem et dui. Donec magna leo, tincidunt et accumsan sit amet, efficitur nec eros. Nam faucibus dui quis odio mattis, quis eleifend tellus sagittis. Nulla vitae nisi eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque semper velit et elit sagittis rhoncus id vitae justo. Duis molestie lacus eu dictum condimentum. Nunc id cursus mauris. Curabitur vel imperdiet leo. Aliquam erat volutpat. Fusce sollicitudin odio vel odio dignissim, a lacinia nulla lobortis. In bibendum nisl ac aliquet tristique.</p>
+                
+                </div>
+
+                <div>
+                <h6>Nguyen Ha Huy Hoang</h6>
+                <img src="" alt="Girl in a jacket" width="500" height="600"/>
+                <p>Vivamus auctor elementum ante commodo mattis. Morbi dictum, turpis ac pellentesque viverra, quam neque euismod eros, quis bibendum purus sem et dui. Donec magna leo, tincidunt et accumsan sit amet, efficitur nec eros. Nam faucibus dui quis odio mattis, quis eleifend tellus sagittis. Nulla vitae nisi eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque semper velit et elit sagittis rhoncus id vitae justo. Duis molestie lacus eu dictum condimentum. Nunc id cursus mauris. Curabitur vel imperdiet leo. Aliquam erat volutpat. Fusce sollicitudin odio vel odio dignissim, a lacinia nulla lobortis. In bibendum nisl ac aliquet tristique.</p>
+                
+                </div>
+
+                <div>
+                <h6>Le Minh Vu</h6>
+                <img src="" alt="Girl in a jacket" width="500" height="600"/>
+                <p>Vivamus auctor elementum ante commodo mattis. Morbi dictum, turpis ac pellentesque viverra, quam neque euismod eros, quis bibendum purus sem et dui. Donec magna leo, tincidunt et accumsan sit amet, efficitur nec eros. Nam faucibus dui quis odio mattis, quis eleifend tellus sagittis. Nulla vitae nisi eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque semper velit et elit sagittis rhoncus id vitae justo. Duis molestie lacus eu dictum condimentum. Nunc id cursus mauris. Curabitur vel imperdiet leo. Aliquam erat volutpat. Fusce sollicitudin odio vel odio dignissim, a lacinia nulla lobortis. In bibendum nisl ac aliquet tristique.</p>
+                
+                </div>
+
+                <div>
+                <h6>Ngo Quoc Viet</h6>
+                <img src="" alt="Girl in a jacket" width="500" height="600"/>
+                <p>Vivamus auctor elementum ante commodo mattis. Morbi dictum, turpis ac pellentesque viverra, quam neque euismod eros, quis bibendum purus sem et dui. Donec magna leo, tincidunt et accumsan sit amet, efficitur nec eros. Nam faucibus dui quis odio mattis, quis eleifend tellus sagittis. Nulla vitae nisi eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque semper velit et elit sagittis rhoncus id vitae justo. Duis molestie lacus eu dictum condimentum. Nunc id cursus mauris. Curabitur vel imperdiet leo. Aliquam erat volutpat. Fusce sollicitudin odio vel odio dignissim, a lacinia nulla lobortis. In bibendum nisl ac aliquet tristique.</p>
+                
+                </div>
+
+                <div>
+                <h6>Tran Duy Duong</h6>
+                <img src="" alt="Girl in a jacket" width="500" height="600"/>
+                <p>Vivamus auctor elementum ante commodo mattis. Morbi dictum, turpis ac pellentesque viverra, quam neque euismod eros, quis bibendum purus sem et dui. Donec magna leo, tincidunt et accumsan sit amet, efficitur nec eros. Nam faucibus dui quis odio mattis, quis eleifend tellus sagittis. Nulla vitae nisi eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque semper velit et elit sagittis rhoncus id vitae justo. Duis molestie lacus eu dictum condimentum. Nunc id cursus mauris. Curabitur vel imperdiet leo. Aliquam erat volutpat. Fusce sollicitudin odio vel odio dignissim, a lacinia nulla lobortis. In bibendum nisl ac aliquet tristique.</p>
+                
+                </div>
+
+                <div>
+                <h6>Tran Anh Duy</h6>
+                <img src="" alt="Girl in a jacket" width="500" height="600"/>
+                <p>Vivamus auctor elementum ante commodo mattis. Morbi dictum, turpis ac pellentesque viverra, quam neque euismod eros, quis bibendum purus sem et dui. Donec magna leo, tincidunt et accumsan sit amet, efficitur nec eros. Nam faucibus dui quis odio mattis, quis eleifend tellus sagittis. Nulla vitae nisi eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque semper velit et elit sagittis rhoncus id vitae justo. Duis molestie lacus eu dictum condimentum. Nunc id cursus mauris. Curabitur vel imperdiet leo. Aliquam erat volutpat. Fusce sollicitudin odio vel odio dignissim, a lacinia nulla lobortis. In bibendum nisl ac aliquet tristique.</p>
+                
+                </div>
+
+                
+
+
               </CardBody>
             </Card>
           </Col>
