@@ -23,6 +23,7 @@ import TableList from "views/TableList.js";
 import Maps from "views/Maps.js";
 import Upgrade from "views/Upgrade.js";
 import UserPage from "views/UserPage.js";
+import React from "react";
 
 var dashRoutes = [
   // {
