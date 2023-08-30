@@ -1,10 +1,16 @@
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import db
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, jsonify
 from flask_firebase import FirebaseAuth
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
-import json
+import base64
+from PIL import Image
+import io
+import numpy as np
+
+
+from models import Account
 
 app = Flask(__name__)
 
@@ -24,36 +30,9 @@ firebase_admin.initialize_app(cred, {
 
 app.register_blueprint(auth.blueprint, url_prefix='/auth')
 
-class Account:
-    def __init__(self, firebase_user_id):
-        self.account_id = 0
-        self.firebase_user_id = firebase_user_id
-        self.email = ""
-        self.email_verified = False
-        self.name = ""
-        self.photo_url = ""
-        self.is_active = True
-        self.is_authenticated = True
-
-    def get_id(self):
-        return self.firebase_user_id
-
-    def __repr__(self):
-        return str(dict(firebase_user_id=self.firebase_user_id, email=self.email, name=self.name, photo_url=self.photo_url))
-
-    @staticmethod
-    def from_dict(source):
-        print(source)
-        print(source['firebase_user_id'])
-        account = Account(source['firebase_user_id'])    
-        account.email = source['email']
-        account.email_verified = source['email_verified']
-        account.name = source['name']
-        account.photo_url = source['photo_url']
-        return account
-
 with app.app_context():
     ref = db.reference("users")
+
 
 @auth.production_loader
 def production_sign_in(token):
@@ -90,3 +69,52 @@ def authentication_required():
 @login_required
 def index():
     return f"<p>Hello, {current_user.name}!</p><img src='{current_user.photo_url}' />"
+
+
+@app.route("/run", methods=['POST'])
+@login_required
+def run() -> str:
+    if request.get_json() is not None:
+        data = request.get_json()
+
+        err = ""
+
+        image_arr = np.array([])
+
+        image = data.get('image')
+        if image is None:
+            err += "Image is missing\n"
+        else:
+            base64_string = image.split(',')[1]
+            image_bytes = base64.b64decode(base64_string)
+            _image = Image.open(io.BytesIO(image_bytes))
+            image_arr = np.array(_image)
+
+        image_mode = data.get('image_mode')
+        if image_mode is None:
+            err += "Image Mode is missing\n"
+
+        prompt = data.get('prompt')
+        if prompt is None:
+            prompt = ""
+
+        images_number = data.get('images_number')
+        if images_number is None:
+            err += "Images Number is missing\n"
+
+        alignment_strength = data.get('alignment_strength')
+        if alignment_strength is None:
+            err += "Alignment Strength is missing\n"
+
+        tile_refinement = data.get('tile_refinement')
+        if tile_refinement is None:
+            tile_refinement = False
+
+        print (image_arr, image_mode, prompt, images_number, alignment_strength, tile_refinement)
+
+        if len(err) == 0:
+            return jsonify({'test': 'hello'}), 200
+        else:
+            return jsonify({'err': err}), 400
+    else:
+        return jsonify({'err': 'please send request as json'})
