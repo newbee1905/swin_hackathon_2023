@@ -26,3 +26,5 @@ backend/.coverage.*
 backend/*,cover
 
 backend/database.db
+backend/settings.py
+backend/swin-hack-2023-firebase-adminsdk-9pify-a9f6e4af08.json
