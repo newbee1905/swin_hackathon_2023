@@ -6,6 +6,13 @@ name = "pypi"
 [packages]
 flask = "*"
 gunicorn = "*"
+flask-login = "*"
+flask-sqlalchemy = "*"
+jwt = "*"
+python-dotenv = "*"
+pyjwt = "*"
+requests = "*"
+firebase-admin = "*"
 
 [dev-packages]
 
