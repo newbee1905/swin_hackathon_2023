@@ -26,13 +26,13 @@ import UserPage from "views/UserPage.js";
 import React from "react";
 
 var dashRoutes = [
-  // {
-  //   path: "/dashboard",
-  //   name: "Dashboard",
-  //   icon: "design_app",
-  //   component: <Dashboard />,
-  //   layout: "/admin",
-  // },
+  {
+    path: "/dashboard",
+    name: "Member List",
+    icon: "design_app",
+    component: <Dashboard />,
+    layout: "/admin",
+  },
   // {
   //   path: "/icons",
   //   name: "Icons",
@@ -54,23 +54,23 @@ var dashRoutes = [
   //   component: <Notifications />,
   //   layout: "/admin",
   // },
-  {
-    path: "/user-page",
-    name: "User Profile",
-    icon: "users_single-02",
-    component: <UserPage />,
-    layout: "/admin",
-  },
-  {
-    path: "/extended-tables",
-    name: "Table List",
-    icon: "files_paper",
-    component: <TableList />,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/user-page",
+  //   name: "User Profile",
+  //   icon: "users_single-02",
+  //   component: <UserPage />,
+  //   layout: "/admin",
+  // },
+  // {
+  //   path: "/extended-tables",
+  //   name: "Member List",
+  //   icon: "files_paper",
+  //   component: <TableList />,
+  //   layout: "/admin",
+  // },
   {
     path: "/typography",
-    name: "Typography",
+    name: "Upload",
     icon: "design-2_ruler-pencil",
     component: <Typography />,
     layout: "/admin",

@@ -16,358 +16,86 @@
 
 */
 import React from "react";
-// react plugin used to create charts
-import { Line, Bar } from "react-chartjs-2";
+import hoang from '../assets/img/hoang.jpg';
+import minh from '../assets/img/minh.jpg';
+import dat from '../assets/img/dat.jpg';
+import viet from '../assets/img/viet.jpg';
+import duy from '../assets/img/duy.jpeg';
 
 // reactstrap components
 import {
   Card,
-  CardHeader,
   CardBody,
-  CardFooter,
+  CardHeader,
   CardTitle,
+  Table,
   Row,
   Col,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Table,
-  Button,
-  Label,
-  FormGroup,
-  Input,
-  UncontrolledTooltip,
 } from "reactstrap";
 
 // core components
 import PanelHeader from "components/PanelHeader/PanelHeader.js";
 
-import {
-  dashboardPanelChart,
-  dashboardShippedProductsChart,
-  dashboardAllProductsChart,
-  dashboard24HoursPerformanceChart,
-} from "variables/charts.js";
+import { thead, tbody } from "variables/general";
 
-function Dashboard() {
+function RegularTables() {
+
   return (
     <>
-      <PanelHeader
-        size="lg"
-        content={
-          <Line
-            data={dashboardPanelChart.data}
-            options={dashboardPanelChart.options}
-          />
-        }
-      />
+      <PanelHeader size="sm" />
       <div className="content">
         <Row>
-          <Col xs={12} md={4}>
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Global Sales</h5>
-                <CardTitle tag="h4">Shipped Products</CardTitle>
-                <UncontrolledDropdown>
-                  <DropdownToggle
-                    className="btn-round btn-outline-default btn-icon"
-                    color="default"
-                  >
-                    <i className="now-ui-icons loader_gear" />
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>Action</DropdownItem>
-                    <DropdownItem>Another Action</DropdownItem>
-                    <DropdownItem>Something else here</DropdownItem>
-                    <DropdownItem className="text-danger">
-                      Remove data
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={dashboardShippedProductsChart.data}
-                    options={dashboardShippedProductsChart.options}
-                  />
-                </div>
-              </CardBody>
-              <CardFooter>
-                <div className="stats">
-                  <i className="now-ui-icons arrows-1_refresh-69" /> Just
-                  Updated
-                </div>
-              </CardFooter>
-            </Card>
-          </Col>
-          <Col xs={12} md={4}>
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">2021 Sales</h5>
-                <CardTitle tag="h4">All products</CardTitle>
-                <UncontrolledDropdown>
-                  <DropdownToggle
-                    className="btn-round btn-outline-default btn-icon"
-                    color="default"
-                  >
-                    <i className="now-ui-icons loader_gear" />
-                  </DropdownToggle>
-                  <DropdownMenu right>
-                    <DropdownItem>Action</DropdownItem>
-                    <DropdownItem>Another Action</DropdownItem>
-                    <DropdownItem>Something else here</DropdownItem>
-                    <DropdownItem className="text-danger">
-                      Remove data
-                    </DropdownItem>
-                  </DropdownMenu>
-                </UncontrolledDropdown>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Line
-                    data={dashboardAllProductsChart.data}
-                    options={dashboardAllProductsChart.options}
-                  />
-                </div>
-              </CardBody>
-              <CardFooter>
-                <div className="stats">
-                  <i className="now-ui-icons arrows-1_refresh-69" /> Just
-                  Updated
-                </div>
-              </CardFooter>
-            </Card>
-          </Col>
-          <Col xs={12} md={4}>
-            <Card className="card-chart">
-              <CardHeader>
-                <h5 className="card-category">Email Statistics</h5>
-                <CardTitle tag="h4">24 Hours Performance</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="chart-area">
-                  <Bar
-                    data={dashboard24HoursPerformanceChart.data}
-                    options={dashboard24HoursPerformanceChart.options}
-                  />
-                </div>
-              </CardBody>
-              <CardFooter>
-                <div className="stats">
-                  <i className="now-ui-icons ui-2_time-alarm" /> Last 7 days
-                </div>
-              </CardFooter>
-            </Card>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={6}>
-            <Card className="card-tasks">
-              <CardHeader>
-                <h5 className="card-category">Backend Development</h5>
-                <CardTitle tag="h4">Tasks</CardTitle>
-              </CardHeader>
-              <CardBody>
-                <div className="table-full-width table-responsive">
-                  <Table>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <FormGroup check>
-                            <Label check>
-                              <Input defaultChecked type="checkbox" />
-                              <span className="form-check-sign" />
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-left">
-                          Sign contract for "What are conference organizers
-                          afraid of?"
-                        </td>
-                        <td className="td-actions text-right">
-                          <Button
-                            className="btn-round btn-icon btn-icon-mini btn-neutral"
-                            color="info"
-                            id="tooltip731609871"
-                            type="button"
-                          >
-                            <i className="now-ui-icons ui-2_settings-90" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip731609871"
-                          >
-                            Edit Task
-                          </UncontrolledTooltip>
-                          <Button
-                            className="btn-round btn-icon btn-icon-mini btn-neutral"
-                            color="danger"
-                            id="tooltip923217206"
-                            type="button"
-                          >
-                            <i className="now-ui-icons ui-1_simple-remove" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip923217206"
-                          >
-                            Remove
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <FormGroup check>
-                            <Label check>
-                              <Input type="checkbox" />
-                              <span className="form-check-sign" />
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-left">
-                          Lines From Great Russian Literature? Or E-mails From
-                          My Boss?
-                        </td>
-                        <td className="td-actions text-right">
-                          <Button
-                            className="btn-round btn-icon btn-icon-mini btn-neutral"
-                            color="info"
-                            id="tooltip907509347"
-                            type="button"
-                          >
-                            <i className="now-ui-icons ui-2_settings-90" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip907509347"
-                          >
-                            Edit Task
-                          </UncontrolledTooltip>
-                          <Button
-                            className="btn-round btn-icon btn-icon-mini btn-neutral"
-                            color="danger"
-                            id="tooltip496353037"
-                            type="button"
-                          >
-                            <i className="now-ui-icons ui-1_simple-remove" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip496353037"
-                          >
-                            Remove
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <FormGroup check>
-                            <Label check>
-                              <Input defaultChecked type="checkbox" />
-                              <span className="form-check-sign" />
-                            </Label>
-                          </FormGroup>
-                        </td>
-                        <td className="text-left">
-                          Flooded: One year later, assessing what was lost and
-                          what was found when a ravaging rain swept through
-                          metro Detroit
-                        </td>
-                        <td className="td-actions text-right">
-                          <Button
-                            className="btn-round btn-icon btn-icon-mini btn-neutral"
-                            color="info"
-                            id="tooltip326247652"
-                            type="button"
-                          >
-                            <i className="now-ui-icons ui-2_settings-90" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip326247652"
-                          >
-                            Edit Task
-                          </UncontrolledTooltip>
-                          <Button
-                            className="btn-round btn-icon btn-icon-mini btn-neutral"
-                            color="danger"
-                            id="tooltip389516969"
-                            type="button"
-                          >
-                            <i className="now-ui-icons ui-1_simple-remove" />
-                          </Button>
-                          <UncontrolledTooltip
-                            delay={0}
-                            target="tooltip389516969"
-                          >
-                            Remove
-                          </UncontrolledTooltip>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </Table>
-                </div>
-              </CardBody>
-              <CardFooter>
-                <hr />
-                <div className="stats">
-                  <i className="now-ui-icons loader_refresh spin" /> Updated 3
-                  minutes ago
-                </div>
-              </CardFooter>
-            </Card>
-          </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12}>
             <Card>
               <CardHeader>
-                <h5 className="card-category">All Persons List</h5>
-                <CardTitle tag="h4">Employees Stats</CardTitle>
+                <CardTitle tag="h4">Team Introduction</CardTitle>
               </CardHeader>
               <CardBody>
-                <Table responsive>
-                  <thead className="text-primary">
-                    <tr>
-                      <th>Name</th>
-                      <th>Country</th>
-                      <th>City</th>
-                      <th className="text-right">Salary</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Dakota Rice</td>
-                      <td>Niger</td>
-                      <td>Oud-Turnhout</td>
-                      <td className="text-right">$36,738</td>
-                    </tr>
-                    <tr>
-                      <td>Minerva Hooper</td>
-                      <td>Curaçao</td>
-                      <td>Sinaai-Waas</td>
-                      <td className="text-right">$23,789</td>
-                    </tr>
-                    <tr>
-                      <td>Sage Rodriguez</td>
-                      <td>Netherlands</td>
-                      <td>Baileux</td>
-                      <td className="text-right">$56,142</td>
-                    </tr>
-                    <tr>
-                      <td>Doris Greene</td>
-                      <td>Malawi</td>
-                      <td>Feldkirchen in Kärnten</td>
-                      <td className="text-right">$63,542</td>
-                    </tr>
-                    <tr>
-                      <td>Mason Porter</td>
-                      <td>Chile</td>
-                      <td>Gloucester</td>
-                      <td className="text-right">$78,615</td>
-                    </tr>
-                  </tbody>
-                </Table>
+                <div>
+                <h6>Nguyen Tuan Dat (team learder)</h6>
+                <img src={dat} alt="Girl in a jacket" height="300"/>
+                <p>Ít thì 5 trứng nhiều 1 tên lửa</p>
+                
+                </div>
+
+                <div>
+                <h6>Nguyen Ha Huy Hoang</h6>
+                <img src={hoang} alt="Girl in a jacket" height="300"/>
+                <p>Me Love Pet Snake.</p>
+                
+                </div>
+
+                <div>
+                <h6>Le Minh Vu</h6>
+                <img src={minh} alt="Girl in a jacket" height="300"/>
+                <p>C for the win, stop using pet snake for programming</p>
+                
+                </div>
+
+                <div>
+                <h6>Ngo Quoc Viet</h6>
+                <img src={viet} alt="Girl in a jacket" height="300"/>
+                <p>Be Nice Not Toxic</p>
+                
+                </div>
+
+                {/* <div>
+                <h6>Tran Duy Duong</h6>
+                <img src="" alt="Girl in a jacket" width="500" height="600"/>
+                <p>Vivamus auctor elementum ante commodo mattis. Morbi dictum, turpis ac pellentesque viverra, quam neque euismod eros, quis bibendum purus sem et dui. Donec magna leo, tincidunt et accumsan sit amet, efficitur nec eros. Nam faucibus dui quis odio mattis, quis eleifend tellus sagittis. Nulla vitae nisi eros. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque semper velit et elit sagittis rhoncus id vitae justo. Duis molestie lacus eu dictum condimentum. Nunc id cursus mauris. Curabitur vel imperdiet leo. Aliquam erat volutpat. Fusce sollicitudin odio vel odio dignissim, a lacinia nulla lobortis. In bibendum nisl ac aliquet tristique.</p>
+                
+                </div> */}
+
+                <div>
+                <h6>Tran Anh Duy</h6>
+                <img src={duy} alt="Girl in a jacket" height="300"/>
+                <p>Data is power, speed is just speed</p>
+                
+                </div>
+
+                
+
+
               </CardBody>
             </Card>
           </Col>
@@ -377,4 +105,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default RegularTables;

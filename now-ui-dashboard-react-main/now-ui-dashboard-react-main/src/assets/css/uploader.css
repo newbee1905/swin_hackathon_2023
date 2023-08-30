@@ -53,3 +53,17 @@
     margin-top: 10px;
 
 }
+
+.gene-ima {
+    margin-top: 50px;
+}
+
+.gene {
+    display: flex;
+    flex-direction: column;
+}
+.but {
+    width: 512px;
+    margin-top: 20px;
+
+}

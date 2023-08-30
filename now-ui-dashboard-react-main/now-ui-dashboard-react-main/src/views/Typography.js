@@ -34,8 +34,8 @@ function Typography() {
           <Col md={12}>
             <Card>
               <CardHeader>
-                <h5 className="title">Now Ui Table Heading</h5>
-                <p className="category">Created using Montserrat Font Family</p>
+                <h5 className="title">Upload your view</h5>
+                <p className="category">Generating your wanted vision</p>
               </CardHeader>
               <CardBody>
                 <div className="typography-line">
