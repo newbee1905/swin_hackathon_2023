@@ -7,13 +7,20 @@
 <body>
     <h1>Hello World!</h1>
     <h2>Welcome to FlaskApp!</h2>
-    <h3>{{ utc_dt }}</h3>
-    {% for d in demo %}
-    <div class='demo'>
-        <p>{{ d['created'] }}</p>
-        <h2>{{ d['title'] }}</h2>
-        <p>{{ d['content'] }}</p>
-    </div>
-    {% endfor %}
+    <p>Hello, {{name}}!</p>
+    <img src='{{photo_url}}' />
+    <form action="{{ url_for("run") }}" method="post" enctype="multipart/form-data">
+        <label for="image">Image:</label>
+        <input required type="file" accept='image/*' id="image" name="image" />
+        <label for="image_mode">Image Mode:</label>
+        <input required type="text" id="image_mode" name="image_mode">
+        <label for="prompt">Prompt:</label>
+        <input required type="text" id="prompt" name="prompt">
+        <label for="images_number">Images Number:</label>
+        <input required type="number" id="images_number" name="images_number">
+        <label for="alignment_strength">Alignment Strength:</label>
+        <input required type="number" step="0.01" id="alignment_strength" name="alignment_strength">
+        <button>Submit</button>
+    </form>
 </body>
 </html>
